@@ -41,8 +41,8 @@ UPDATE professor SET fkDisciplina = 1 WHERE idProfessor = 5;
 UPDATE professor SET fkDisciplina = 2 WHERE idProfessor = 6;
 
 SELECT concat (professor.nome, ' ' ,professor.sobrenome) as Nome, concat(professor.especialidade1, ', ',
- professor.especialidade2) as Especialidades, disciplina.nomeDisciplina as 'Disc. Responsável' FROM professor
- JOIN disciplina ON professor.fkDisciplina = disciplina.idDisc;
+ professor.especialidade2) as Especialidades, disciplina.nomeDisciplina as 'Disc. Responsável' FROM professor as p
+ JOIN disciplina as d ON p.fkDisciplina = d.idDisc;
  
  SELECT professor.nome as Nome, disciplina.nomeDisciplina as Disciplina FROM disciplina
 	JOIN professor ON professor.fkDisciplina = disciplina.idDisc;
@@ -50,5 +50,5 @@ SELECT concat (professor.nome, ' ' ,professor.sobrenome) as Nome, concat(profess
 SELECT professor.nome as Nome, professor.especialidade1 as Especialidade, 
 disciplina.nomeDisciplina as Disciplina FROM professor
 	JOIN disciplina ON disciplina.idDisc = professor.fkDisciplina 
-    WHERE nome = 'Paulo';
+    WHERE   nome = 'Paulo';
 
